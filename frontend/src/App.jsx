@@ -1,10 +1,18 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 
+import Accueil from './pages/Accueil';
+import Lecture from './pages/Lecture';
+import Recheche from './pages/Recheche';
 function App() {
   return (
-    <div className="bg-blue-500 text-white p-4">
-      <h1 className="text-2xl font-bold">Baiboly Malagasy</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/lecture/:livreId/:chapitre" element={<Lecture />} />
+        <Route path="/recherche" element={<Recheche />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
