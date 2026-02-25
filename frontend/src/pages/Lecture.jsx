@@ -6,6 +6,7 @@ export default function Lecture() {
   const [verset, setVerset] = useState([]);
   const { livreId, chapitre } = useParams();
   const [chapitres, setChapitres] = useState([]);
+  const [livre, setLivre] = useState(null);
 
   useEffect(() => {
     const fetchVersets = async () => {
@@ -27,9 +28,25 @@ export default function Lecture() {
     fetchChapitres();
   }, [livreId]);
 
+  useEffect(() => {
+    const fetchLivre = async () => {
+      const response = await axios.get(
+        `http://localhost:3000/api/livres/${livreId}`,
+      );
+      setLivre(response.data);
+    };
+    fetchLivre();
+  }, [livreId]);
+  console.log(livre);
+
   return (
     <div className="p-6 text-white">
       {/* Grille des chapitres */}
+      {livre && (
+        <h2 className="text-yellow-400 text-2xl font-bold mb-4">
+          {livre[0].nom}
+        </h2>
+      )}
       <div className="flex flex-wrap gap-2 mb-6">
         {chapitres.map((c) => (
           <Link

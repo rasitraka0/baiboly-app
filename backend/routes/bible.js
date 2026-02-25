@@ -48,5 +48,16 @@ router.get('/livres/:livreId/chapitres', async (req, res) => {
     res.status(500).json({ message: 'Erreur serveur' });
   }
 });
+router.get('/livres/:livreId', async (req, res) => {
+  const { livreId } = req.params;
+  try {
+    const resultat = await pool.query('SELECT * FROM livres WHERE id = $1', [
+      livreId,
+    ]);
+    res.json(resultat.rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
 
 module.exports = router;
