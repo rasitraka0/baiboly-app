@@ -15,7 +15,7 @@ router.get('/livres/:livreId/chapitres/:chapitre', async (req, res) => {
   const { livreId, chapitre } = req.params;
   try {
     const resultat = await pool.query(
-      'SELECT * FROM versets WHERE livre_Id =$1 AND chapitre=$2 ORDER BY verset',
+      'SELECT * FROM versets WHERE livre_id =$1 AND chapitre=$2 ORDER BY verset',
       [livreId, chapitre],
     );
     res.json(resultat.rows);
@@ -30,6 +30,18 @@ router.get('/recherche', async (req, res) => {
     const resultat = await pool.query(
       'SELECT * FROM versets WHERE texte ILIKE $1',
       [`%${motRecherche}%`],
+    );
+    res.json(resultat.rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+router.get('/livres/:livreId/chapitres', async (req, res) => {
+  const { livreId } = req.params;
+  try {
+    const resultat = await pool.query(
+      'SELECT DISTINCT chapitre FROM versets WHERE livre_id = $1 ORDER BY chapitre',
+      [livreId],
     );
     res.json(resultat.rows);
   } catch (error) {
