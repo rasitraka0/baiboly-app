@@ -15,7 +15,7 @@ router.get('/livres/:livreId/chapitres/:chapitre', async (req, res) => {
   const { livreId, chapitre } = req.params;
   try {
     const resultat = await pool.query(
-      'SELECT * FROM versets WHERE livre_Id =$1 AND chapitre=$2',
+      'SELECT * FROM versets WHERE livre_Id =$1 AND chapitre=$2 ORDER BY verset',
       [livreId, chapitre],
     );
     res.json(resultat.rows);
