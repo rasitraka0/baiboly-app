@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Accueil() {
-  return <div>Accueil</div>;
+  return <div>tongasoa, mazotoa mamaky </div>;
 }
