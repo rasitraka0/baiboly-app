@@ -4,7 +4,7 @@ const pool = require('../db');
 
 router.get('/livres', async (req, res) => {
   try {
-    const resultat = await pool.query('SELECT * FROM livres');
+    const resultat = await pool.query('SELECT * FROM livres ORDER BY ordre');
     res.json(resultat.rows);
   } catch (error) {
     res.status(500).json({ message: 'Erreur serveur' });
