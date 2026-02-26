@@ -10,6 +10,7 @@ function Layout() {
   const [testament, setTestament] = useState('taloha');
   const [recherche, setRecherche] = useState('');
   const { livreId } = useParams();
+  const [onglet, setOnglet] = useState('baiboly');
   useEffect(() => {
     const fetchLivres = async () => {
       const response = await axios.get('http://localhost:3000/api/livres');
@@ -38,6 +39,8 @@ function Layout() {
           setRecherche={setRecherche}
           livresFiltres={livresFiltres}
           livreId={livreId}
+          onglet={onglet}
+          setOnglet={setOnglet}
         />
 
         <div className="flex-1 bg-gray-800 rounded-lg overflow-y-auto custom-scrollbar">
