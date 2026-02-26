@@ -51,7 +51,7 @@ function Layout() {
           <div className="flex gap-2 p-3">
             <button
               onClick={() => setTestament('taloha')}
-              className={`flex-1 py-2 rounded font-bold text-sm ${
+              className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
                 testament === 'taloha'
                   ? 'bg-yellow-400 text-gray-900'
                   : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
@@ -61,7 +61,7 @@ function Layout() {
             </button>
             <button
               onClick={() => setTestament('vaovao')}
-              className={`flex-1 py-2 rounded font-bold text-sm ${
+              className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
                 testament === 'vaovao'
                   ? 'bg-yellow-400 text-gray-900'
                   : 'bg-gray-700 text-gray-200 hover:bg-gray-600'

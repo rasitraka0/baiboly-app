@@ -9,12 +9,27 @@ export default function Lecture() {
   const [chapitres, setChapitres] = useState([]);
   const [livre, setLivre] = useState(null);
 
+  const [versetDebut, setVersetDebut] = useState(1);
+  const [versetFin, setVersetFin] = useState(1);
+
+  const versetFiltres = verset.filter((v) => {
+    return v.verset >= versetDebut && v.verset <= versetFin;
+  });
+
   useEffect(() => {
     const fetchVersets = async () => {
       const response = await axios.get(
         `http://localhost:3000/api/livres/${livreId}/chapitres/${chapitre}`,
       );
       setVerset(response.data);
+      console.log(response.data);
+
+      setVersetDebut(1);
+      setVersetFin(
+        response.data.length > 0
+          ? response.data[response.data.length - 1].verset
+          : 1,
+      );
     };
     fetchVersets();
   }, [livreId, chapitre]);
@@ -38,7 +53,6 @@ export default function Lecture() {
     };
     fetchLivre();
   }, [livreId]);
-  console.log(livre);
 
   return (
     <div className="h-full flex flex-col text-white">
@@ -60,11 +74,36 @@ export default function Lecture() {
             </option>
           ))}
         </select>
+        <label className="text-gray-400 ml-4">Andininy faha :</label>
+        <select
+          value={versetDebut}
+          onChange={(e) => setVersetDebut(parseInt(e.target.value))}
+          className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
+        >
+          {verset.map((v) => (
+            <option key={v.verset} value={v.verset}>
+              {v.verset}
+            </option>
+          ))}
+        </select>
+
+        <label className="text-gray-400 ml-4">ka hatramin'ny :</label>
+        <select
+          value={versetFin}
+          onChange={(e) => setVersetFin(parseInt(e.target.value))}
+          className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
+        >
+          {verset.map((v) => (
+            <option key={v.verset} value={v.verset}>
+              {v.verset}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-6 custom-scrollbar">
         <div className="space-y-4">
-          {verset.map((v) => (
+          {versetFiltres.map((v) => (
             <div key={v.id} className="flex gap-4">
               <span className="text-yellow-400 font-bold min-w-6">
                 {v.verset}
