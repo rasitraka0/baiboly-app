@@ -15,6 +15,9 @@ export default function Lecture() {
   const versetFiltres = verset.filter((v) => {
     return v.verset >= versetDebut && v.verset <= versetFin;
   });
+  const filtrageFin = verset.filter((v) => {
+    return v.verset >= versetDebut;
+  });
 
   useEffect(() => {
     const fetchVersets = async () => {
@@ -93,7 +96,7 @@ export default function Lecture() {
           onChange={(e) => setVersetFin(parseInt(e.target.value))}
           className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
         >
-          {verset.map((v) => (
+          {filtrageFin.map((v) => (
             <option key={v.verset} value={v.verset}>
               {v.verset}
             </option>

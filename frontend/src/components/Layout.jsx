@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import axios from 'axios';
 
 function Layout() {
   const [livres, setLivre] = useState([]);
   const [testament, setTestament] = useState('taloha');
   const [recherche, setRecherche] = useState('');
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLivres = async () => {
@@ -20,11 +19,9 @@ function Layout() {
   const vaovao = livres.filter((l) => l.ordre >= 40);
   const livresAffiches = testament === 'taloha' ? taloha : vaovao;
 
-  const handleRecherche = (e) => {
-    if (e.key === 'Enter' && recherche.trim()) {
-      navigate(`/recherche?q=${recherche}`);
-    }
-  };
+  const livresFiltres = livresAffiches.filter((l) =>
+    l.nom.toLowerCase().includes(recherche.toLowerCase()),
+  );
 
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-white">
@@ -77,13 +74,12 @@ function Layout() {
               placeholder="Tadiavo ny boky..."
               value={recherche}
               onChange={(e) => setRecherche(e.target.value)}
-              onKeyDown={handleRecherche}
               className="w-full bg-gray-700 text-gray-200 placeholder-gray-500 rounded px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-yellow-400"
             />
           </div>
 
           <div className="overflow-y-auto flex-1 px-2 pb-2 custom-scrollbar">
-            {livresAffiches.map((l) => (
+            {livresFiltres.map((l) => (
               <Link
                 to={`/lecture/${l.id}/1`}
                 key={l.id}

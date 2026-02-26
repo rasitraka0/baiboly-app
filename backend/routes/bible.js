@@ -24,18 +24,6 @@ router.get('/livres/:livreId/chapitres/:chapitre', async (req, res) => {
   }
 });
 
-router.get('/recherche', async (req, res) => {
-  const motRecherche = req.query.q;
-  try {
-    const resultat = await pool.query(
-      'SELECT * FROM versets WHERE texte ILIKE $1',
-      [`%${motRecherche}%`],
-    );
-    res.json(resultat.rows);
-  } catch (error) {
-    res.status(500).json({ message: 'Erreur serveur' });
-  }
-});
 router.get('/livres/:livreId/chapitres', async (req, res) => {
   const { livreId } = req.params;
   try {
