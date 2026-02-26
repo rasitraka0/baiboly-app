@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SideMofonaina from './SideMofonaina';
 export default function Sidebar({
   testament,
   setTestament,
@@ -88,8 +89,8 @@ export default function Sidebar({
           </div>
         </>
       ) : (
-        <div className="flex-1 flex items-center justify-center text-gray-400">
-          Bientôt disponible...
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <SideMofonaina />
         </div>
       )}
     </div>
