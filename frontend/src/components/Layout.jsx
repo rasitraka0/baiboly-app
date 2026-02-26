@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 function Layout() {
   const [livres, setLivre] = useState([]);
   const [testament, setTestament] = useState('taloha');
   const [recherche, setRecherche] = useState('');
-
+  const { livreId } = useParams();
   useEffect(() => {
     const fetchLivres = async () => {
       const response = await axios.get('http://localhost:3000/api/livres');
@@ -83,7 +83,12 @@ function Layout() {
               <Link
                 to={`/lecture/${l.id}/1`}
                 key={l.id}
-                className="block px-3 py-2 rounded hover:bg-gray-700 text-gray-200 hover:text-yellow-400"
+                className={`block px-3 py-2 rounded text-gray-200 
+  ${
+    parseInt(livreId) === l.id
+      ? 'border-l-4 border-yellow-400 text-yellow-400 bg-gray-700'
+      : 'hover:bg-gray-700 hover:text-yellow-400'
+  }`}
               >
                 {l.nom}
               </Link>
