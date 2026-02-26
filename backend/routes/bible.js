@@ -47,5 +47,32 @@ router.get('/livres/:livreId', async (req, res) => {
     res.status(500).json({ message: 'Erreur serveur' });
   }
 });
+router.get('/mofonaina/moisActuel', async (req, res) => {
+  try {
+    const resultat = await pool.query(
+      `
+     SELECT
+  m.id,
+  m.livre_id,
+  l.nom AS livre_nom,
+  m.chapitre,
+  m.verset_debut,
+  m.verset_fin,
+  to_char(m.date, 'YYYY-MM-DD') AS date,
+  m.theme
+FROM mofonaina m
+JOIN livres l ON l.id = m.livre_id
+WHERE m.date >= date_trunc('month', CURRENT_DATE)
+  AND m.date <  date_trunc('month', CURRENT_DATE) + INTERVAL '1 month'
+ORDER BY m.date;
+      `,
+    );
+
+    res.json(resultat.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
 
 module.exports = router;
