@@ -74,5 +74,34 @@ ORDER BY m.date;
     res.status(500).json({ message: 'Erreur serveur' });
   }
 });
+router.get('/mofonaina/:dateActif', async (req, res) => {
+  const { dateActif } = req.params;
+  try {
+    const resultat = await pool.query(
+      `SELECT * FROM mofonaina WHERE date = $1`,
+      [dateActif],
+    );
+    res.json(resultat.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+});
+router.get(
+  '/mofonaina/:livreId/:chapitre/:verset_debut/:verset_fin',
+  async (req, res) => {
+    const { livreId, chapitre, verset_debut, verset_fin } = req.params;
+    try {
+      const resultat = await pool.query(
+        'SELECT versets.*, livres.nom AS nom_livre FROM versets JOIN livres ON versets.livre_id = livres.id WHERE versets.livre_id = $1 AND versets.chapitre = $2 AND versets.verset BETWEEN $3 AND $4',
+        [livreId, chapitre, verset_debut, verset_fin],
+      );
+      res.json(resultat.rows);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Erreur serveur' });
+    }
+  },
+);
 
 module.exports = router;
