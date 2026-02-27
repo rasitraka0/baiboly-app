@@ -11,6 +11,7 @@ function Layout() {
   const [recherche, setRecherche] = useState('');
   const { livreId } = useParams();
   const [onglet, setOnglet] = useState('baiboly');
+
   useEffect(() => {
     const fetchLivres = async () => {
       const response = await axios.get('http://localhost:3000/api/livres');
@@ -21,6 +22,7 @@ function Layout() {
 
   const taloha = livres.filter((l) => l.ordre <= 39);
   const vaovao = livres.filter((l) => l.ordre >= 40);
+  
   const livresAffiches = testament === 'taloha' ? taloha : vaovao;
 
   const livresFiltres = livresAffiches.filter((l) =>

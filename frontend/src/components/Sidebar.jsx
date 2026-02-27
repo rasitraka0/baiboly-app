@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SideMofonaina from './SideMofonaina';
+
+import LectureMofonaina from '../pages/LectureMofonaina';
+
 export default function Sidebar({
   testament,
   setTestament,
@@ -11,6 +14,11 @@ export default function Sidebar({
   onglet,
   setOnglet,
 }) {
+  const navigate = useNavigate();
+  function navigerVers() {
+    navigate('/LectureMofonaina');
+    setOnglet('mofon');
+  }
   return (
     <div className="w-86 bg-gray-800 rounded-lg flex flex-col overflow-hidden ">
       <div className="flex border-b border-gray-700">
@@ -25,7 +33,7 @@ export default function Sidebar({
           Baiboly
         </button>
         <button
-          onClick={() => setOnglet('mofon')}
+          onClick={navigerVers}
           className={`flex-1 py-3 font-bold cursor-pointer ${
             onglet === 'mofon'
               ? 'text-yellow-400 border-b-2 border-yellow-400'
