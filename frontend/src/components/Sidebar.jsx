@@ -4,6 +4,34 @@ import SideMofonaina from './SideMofonaina';
 
 import LectureMofonaina from '../pages/LectureMofonaina';
 
+function SidebarTabButton({ isActive, onClick, children }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex-1 py-3 font-bold cursor-pointer ${
+        isActive
+          ? 'text-yellow-400 border-b-2 border-yellow-400'
+          : 'text-gray-400 hover:text-white'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+function TestamentButton({ isActive, onClick, children }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
+        isActive
+          ? 'bg-yellow-400 text-gray-900'
+          : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
 export default function Sidebar({
   testament,
   setTestament,
@@ -22,51 +50,33 @@ export default function Sidebar({
   return (
     <div className="w-86 bg-gray-800 rounded-lg flex flex-col overflow-hidden ">
       <div className="flex border-b border-gray-700">
-        <button
+        <SidebarTabButton
+          isActive={onglet === 'baiboly'}
           onClick={() => setOnglet('baiboly')}
-          className={`flex-1 py-3 font-bold cursor-pointer ${
-            onglet === 'baiboly'
-              ? 'text-yellow-400 border-b-2 border-yellow-400'
-              : 'text-gray-400 hover:text-white'
-          }`}
         >
           Baiboly
-        </button>
-        <button
-          onClick={navigerVers}
-          className={`flex-1 py-3 font-bold cursor-pointer ${
-            onglet === 'mofon'
-              ? 'text-yellow-400 border-b-2 border-yellow-400'
-              : 'text-gray-400 hover:text-white'
-          }`}
-        >
+        </SidebarTabButton>
+
+        <SidebarTabButton isActive={onglet === 'mofon'} onClick={navigerVers}>
           Mofon'aina
-        </button>
+        </SidebarTabButton>
       </div>
 
       {onglet === 'baiboly' ? (
         <>
           <div className="flex gap-2 p-3">
-            <button
+            <TestamentButton
+              isActive={testament === 'taloha'}
               onClick={() => setTestament('taloha')}
-              className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
-                testament === 'taloha'
-                  ? 'bg-yellow-400 text-gray-900'
-                  : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
-              }`}
             >
               Taloha
-            </button>
-            <button
+            </TestamentButton>
+            <TestamentButton
+              isActive={testament === 'vaovao'}
               onClick={() => setTestament('vaovao')}
-              className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
-                testament === 'vaovao'
-                  ? 'bg-yellow-400 text-gray-900'
-                  : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
-              }`}
             >
               Vaovao
-            </button>
+            </TestamentButton>
           </div>
 
           <div className="px-3 pb-3">
