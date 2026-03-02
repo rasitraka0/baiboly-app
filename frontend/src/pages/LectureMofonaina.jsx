@@ -2,24 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import VerseList from '../components/VerseList';
+import { getTodayDate } from '../utils/dateUtils';
 
 export default function LectureMofonaina() {
   const [mofonainaActif, setMofonainaActif] = useState([]);
   const [loading, setLoading] = useState(true);
   const [versetDateActif, setVersetDateActif] = useState([]);
-
   const { dateActif } = useParams();
-
-  function getTodayDate() {
-    const today = new Date();
-
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-
-    return `${year}-${month}-${day}`;
-  }
-
   const date = dateActif ?? getTodayDate();
 
   useEffect(() => {
