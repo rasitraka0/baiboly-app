@@ -1,34 +1,32 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { formatDateMalgache, isToday } from '../utils/dateUtils';
 
+function MofonainaItem({ item, isActive, onClick }) {
+  const isTodayDate = isToday(item.date);
+  return (
+    <Link
+      to={`/lectureMofonaina/${item.date}`}
+      onClick={onClick}
+      className={`flex flex-col gap-1 py-3 border-b border-gray-200 hover:bg-gray-700  hover:text-yellow-400 cursor-pointer rounded px-2 
+               ${isTodayDate || isActive ? 'bg-gray-700 text-yellow-400 ' : ''}`}
+    >
+      <span className="text-sm text-gray-500">
+        {formatDateMalgache(item.date)}{' '}
+        {isTodayDate ? <span className="text-green-400"> Anio</span> : ''}
+      </span>
+      <span className="font-medium">
+        {item.livre_nom} {item.chapitre}:{item.verset_debut}-{item.verset_fin}
+      </span>
+    </Link>
+  );
+}
 export default function SideMofonaina() {
   const [mois, setMois] = useState([]);
   const [loading, setLoading] = useState(true);
   const [clickedId, setClickedId] = useState(null);
 
-  function formatDateMalgache(dateStr) {
-    if (!dateStr) return '';
-
-    const moisMalgache = [
-      'Janoary',
-      'Febroary',
-      'Marsa',
-      'Aprily',
-      'Mey',
-      'Jona',
-      'Jolay',
-      'Aogositra',
-      'Septambra',
-      'Oktobra',
-      'Novambra',
-      'Desambra',
-    ];
-
-    const [year, month, day] = dateStr.split('-');
-
-    return `${parseInt(day)} ${moisMalgache[parseInt(month) - 1]} ${year}`;
-  }
   useEffect(() => {
     const fetchMois = async () => {
       const response = await axios.get(
@@ -41,17 +39,6 @@ export default function SideMofonaina() {
   }, []);
   console.log(mois);
 
-  const isToday = (date) => {
-    const today = new Date();
-    const d = new Date(date);
-
-    return (
-      d.getDate() === today.getDate() &&
-      d.getMonth() === today.getMonth() &&
-      d.getFullYear() === today.getFullYear()
-    );
-  };
-
   if (loading) return <div>Chargement....</div>;
 
   return (
@@ -60,25 +47,12 @@ export default function SideMofonaina() {
       <div className="overflow-y-auto flex-1 px-2 pb-2 custom-scrollbar">
         {mois.map((m) => {
           return (
-            <Link
-              to={`/lectureMofonaina/${m.date}`}
-              onClick={() => setClickedId(m.id)}
+            <MofonainaItem
               key={m.id}
-              className={`flex flex-col gap-1 py-3 border-b border-gray-200 hover:bg-gray-700  hover:text-yellow-400 cursor-pointer rounded px-2 ${isToday(m.date) ? 'bg-gray-700 text-yellow-400 ' : ''}
-               ${clickedId === m.id ? 'bg-gray-700 text-yellow-400 ' : ''}`}
-            >
-              <span className="text-sm text-gray-500">
-                {formatDateMalgache(m.date)}{' '}
-                {isToday(m.date) ? (
-                  <span className="text-green-400"> Anio</span>
-                ) : (
-                  ''
-                )}
-              </span>
-              <span className="font-medium">
-                {m.livre_nom} {m.chapitre}:{m.verset_debut}-{m.verset_fin}
-              </span>
-            </Link>
+              item={m}
+              isActive={clickedId === m.id}
+              onClick={() => setClickedId(m.id)}
+            />
           );
         })}
       </div>
