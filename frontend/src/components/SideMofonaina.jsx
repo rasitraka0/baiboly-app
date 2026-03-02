@@ -22,7 +22,7 @@ function MofonainaItem({ item, isActive, onClick }) {
     </Link>
   );
 }
-export default function SideMofonaina() {
+export default function SideMofonaina({ onItemClick }) {
   const [mois, setMois] = useState([]);
   const [loading, setLoading] = useState(true);
   const [clickedId, setClickedId] = useState(null);
@@ -51,7 +51,12 @@ export default function SideMofonaina() {
               key={m.id}
               item={m}
               isActive={clickedId === m.id}
-              onClick={() => setClickedId(m.id)}
+              onClick={() => {
+                setClickedId(m.id);
+                if (onItemClick) {
+                  onItemClick();
+                }
+              }}
             />
           );
         })}

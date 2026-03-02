@@ -41,6 +41,7 @@ export default function Sidebar({
   livreId,
   onglet,
   setOnglet,
+  onItemClick,
 }) {
   const navigate = useNavigate();
   function navigerVers() {
@@ -48,7 +49,7 @@ export default function Sidebar({
     setOnglet('mofon');
   }
   return (
-    <div className="w-86 bg-gray-800 rounded-lg flex flex-col overflow-hidden ">
+    <div className="bg-gray-800 rounded-lg flex flex-col overflow-hidden w-full md:w-80 lg:w-96 h-full">
       <div className="flex border-b border-gray-700">
         <SidebarTabButton
           isActive={onglet === 'baiboly'}
@@ -94,6 +95,7 @@ export default function Sidebar({
               <Link
                 to={`/lecture/${l.id}/1`}
                 key={l.id}
+                onClick={onItemClick}
                 className={`block px-3 py-2 rounded text-gray-200 
   ${
     parseInt(livreId) === l.id
@@ -108,7 +110,7 @@ export default function Sidebar({
         </>
       ) : (
         <div className="flex-1 flex flex-col overflow-hidden">
-          <SideMofonaina />
+          <SideMofonaina onItemClick={onItemClick} />
         </div>
       )}
     </div>
