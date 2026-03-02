@@ -1,7 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
+function FilterSelect({ label, value, onChange, children }) {
+  return (
+    <>
+      <label className="text-gray-400 ml-4">{label}</label>
+      <select
+        value={value}
+        onChange={onChange}
+        className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
+      >
+        {children}
+      </select>
+    </>
+  );
+}
+function VerseList({ verses }) {
+  return (
+    <div className="space-y-4">
+      {verses.map((v) => (
+        <div key={v.id} className="flex gap-4">
+          <span className="text-yellow-400 font-bold min-w-6">{v.verset}</span>
+          <span className="text-gray-200 leading-relaxed">{v.texte}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 export default function Lecture() {
   const navigate = useNavigate();
   const [verset, setVerset] = useState([]);
@@ -65,56 +91,46 @@ export default function Lecture() {
             {livre[0].nom}
           </h2>
         )}
-        <label className="text-gray-400 ml-4">Toko : </label>
-        <select
+
+        <FilterSelect
+          label="Toko : "
           value={chapitre}
           onChange={(e) => navigate(`/lecture/${livreId}/${e.target.value}`)}
-          className="bg-gray-700  text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer  custom-scrollbar"
         >
           {chapitres.map((c) => (
             <option key={c.chapitre} value={c.chapitre}>
               {c.chapitre}
             </option>
           ))}
-        </select>
-        <label className="text-gray-400 ml-4">Andininy faha :</label>
-        <select
+        </FilterSelect>
+
+        <FilterSelect
+          label={'Andininy faha :'}
           value={versetDebut}
           onChange={(e) => setVersetDebut(parseInt(e.target.value))}
-          className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
         >
           {verset.map((v) => (
             <option key={v.verset} value={v.verset}>
               {v.verset}
             </option>
           ))}
-        </select>
+        </FilterSelect>
 
-        <label className="text-gray-400 ml-4">ka hatramin'ny :</label>
-        <select
+        <FilterSelect
+          label={"ka hatramin'ny :"}
           value={versetFin}
           onChange={(e) => setVersetFin(parseInt(e.target.value))}
-          className="bg-gray-700 text-white rounded px-3 py-1 outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer"
         >
           {filtrageFin.map((v) => (
             <option key={v.verset} value={v.verset}>
               {v.verset}
             </option>
           ))}
-        </select>
+        </FilterSelect>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-6 custom-scrollbar">
-        <div className="space-y-4">
-          {versetFiltres.map((v) => (
-            <div key={v.id} className="flex gap-4">
-              <span className="text-yellow-400 font-bold min-w-6">
-                {v.verset}
-              </span>
-              <span className="text-gray-200 leading-relaxed">{v.texte}</span>
-            </div>
-          ))}
-        </div>
+        <VerseList verses={versetFiltres} />
       </div>
     </div>
   );
