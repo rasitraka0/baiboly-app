@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import VerseList from '../components/VerseList';
 
 function FilterSelect({ label, value, onChange, children }) {
   return (
@@ -16,18 +17,7 @@ function FilterSelect({ label, value, onChange, children }) {
     </>
   );
 }
-function VerseList({ verses }) {
-  return (
-    <div className="space-y-4">
-      {verses.map((v) => (
-        <div key={v.id} className="flex gap-4">
-          <span className="text-yellow-400 font-bold min-w-6">{v.verset}</span>
-          <span className="text-gray-200 leading-relaxed">{v.texte}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
+
 export default function Lecture() {
   const navigate = useNavigate();
   const [verset, setVerset] = useState([]);

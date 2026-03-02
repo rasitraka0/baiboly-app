@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import VerseList from '../components/VerseList';
 
 export default function LectureMofonaina() {
   const [mofonainaActif, setMofonainaActif] = useState([]);
@@ -79,16 +80,7 @@ export default function LectureMofonaina() {
         </h2>
       </div>
       <div className="flex-1 overflow-y-auto px-6 py-6 custom-scrollbar">
-        <div className="space-y-4">
-          {versetDateActif.map((v) => (
-            <div key={v.id} className="flex gap-4">
-              <span className="text-yellow-400 font-bold min-w-6">
-                {v.verset}
-              </span>
-              <span className="text-gray-200 leading-relaxed">{v.texte}</span>
-            </div>
-          ))}
-        </div>
+        <VerseList verses={versetDateActif} />
       </div>
     </div>
   );
