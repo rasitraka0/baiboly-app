@@ -93,7 +93,7 @@ router.get(
     const { livreId, chapitre, verset_debut, verset_fin } = req.params;
     try {
       const resultat = await pool.query(
-        'SELECT versets.*, livres.nom AS nom_livre FROM versets JOIN livres ON versets.livre_id = livres.id WHERE versets.livre_id = $1 AND versets.chapitre = $2 AND versets.verset BETWEEN $3 AND $4',
+        'SELECT versets.*, livres.nom AS nom_livre FROM versets JOIN livres ON versets.livre_id = livres.id WHERE versets.livre_id = $1 AND versets.chapitre = $2 AND versets.verset BETWEEN $3 AND $4 ORDER BY versets.verset',
         [livreId, chapitre, verset_debut, verset_fin],
       );
       res.json(resultat.rows);
