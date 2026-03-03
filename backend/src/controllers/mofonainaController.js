@@ -12,6 +12,9 @@ const getMofonainaByDateActive = async (req, res, next) => {
   try {
     const { dateActive } = req.params;
     const result = await mofonainaServices.getMofonainaByDateActive(dateActive);
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'mofonaina non trouvé' });
+    }
     res.json(result);
   } catch (error) {
     next(error);
@@ -26,6 +29,9 @@ const getVersesByBookChapterAndRange = async (req, res, next) => {
       verset_debut,
       verset_fin,
     );
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'Versets non trouvés' });
+    }
     res.json(result);
   } catch (error) {
     next(error);

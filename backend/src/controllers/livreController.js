@@ -15,6 +15,9 @@ const getVersesByBookAndChapter = async (req, res, next) => {
       livreId,
       chapitre,
     );
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'Verset non trouvé' });
+    }
     res.json(result);
   } catch (error) {
     next(error);
@@ -24,6 +27,9 @@ const getChaptersByBook = async (req, res, next) => {
   try {
     const { livreId } = req.params;
     const result = await livreService.getChaptersByBook(livreId);
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'chapitre non trouvé' });
+    }
     res.json(result);
   } catch (error) {
     next(error);
@@ -33,6 +39,10 @@ const getBookById = async (req, res, next) => {
   try {
     const { livreId } = req.params;
     const result = await livreService.getBookById(livreId);
+
+    if (result.length === 0) {
+      return res.status(404).json({ message: 'Livre non trouvé' });
+    }
     res.json(result);
   } catch (error) {
     next(error);
