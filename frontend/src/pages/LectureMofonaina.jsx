@@ -59,11 +59,11 @@ export default function LectureMofonaina() {
 
   return (
     <div className="h-full flex flex-col text-white">
-      <div className="px-6 py-4 border-b border-gray-700">
-        <div className="text-yellow-400 text-3xl font-bold mb-4 text-center">
+      <div className="px-6 py-1 border-b border-gray-700">
+        <div className="text-yellow-400 text-1xl font-bold mb-4 text-center md:text-2xl xl:text-3xl">
           MOFON'AINA : {mofonainaActif[0].jour} {mofonainaActif[0].mois}
         </div>
-        <h2 className="text-yellow-400 text-2xl font-bold mb-4">
+        <h2 className="text-yellow-400 text-1xl text-center font-bold mb-4 xl:2xl">
           {versetDateActif[0].nom_livre} {mofonainaActif[0].chapitre}:
           {mofonainaActif[0].verset_debut}-{mofonainaActif[0].verset_fin}
         </h2>
