@@ -1,0 +1,172 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient couverture principale -->
+    <linearGradient id="coverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8820A"/>
+      <stop offset="40%" stop-color="#D4921C"/>
+      <stop offset="100%" stop-color="#8B5A05"/>
+    </linearGradient>
+
+    <!-- Gradient tranche droite -->
+    <linearGradient id="spineRight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D4A020"/>
+      <stop offset="50%" stop-color="#F0CC50"/>
+      <stop offset="100%" stop-color="#C08010"/>
+    </linearGradient>
+
+    <!-- Gradient reliure gauche -->
+    <linearGradient id="spineLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6B3E02"/>
+      <stop offset="60%" stop-color="#9A5C08"/>
+      <stop offset="100%" stop-color="#B07010"/>
+    </linearGradient>
+
+    <!-- Gradient pages (tranche) -->
+    <linearGradient id="pagesGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5EDD0"/>
+      <stop offset="50%" stop-color="#EDE0B8"/>
+      <stop offset="100%" stop-color="#D8C898"/>
+    </linearGradient>
+
+    <!-- Gradient croix -->
+    <linearGradient id="crossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0A0"/>
+      <stop offset="100%" stop-color="#D4A820"/>
+    </linearGradient>
+
+    <!-- Ombre douce -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="4" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Reflet surface -->
+    <linearGradient id="sheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.18"/>
+      <stop offset="40%" stop-color="white" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Texture légère couverture -->
+    <linearGradient id="texGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#000000" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fond -->
+  
+
+  <!-- RAYONS DE LUMIERE -->
+  <line x1="300" y1="120" x2="300" y2="150" stroke="#D4A020" stroke-width="5" stroke-linecap="round"/>
+  <line x1="278" y1="126" x2="287" y2="154" stroke="#D4A020" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="322" y1="126" x2="313" y2="154" stroke="#D4A020" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="258" y1="138" x2="271" y2="163" stroke="#C89010" stroke-width="4" stroke-linecap="round"/>
+  <line x1="342" y1="138" x2="329" y2="163" stroke="#C89010" stroke-width="4" stroke-linecap="round"/>
+  <line x1="240" y1="153" x2="257" y2="174" stroke="#C89010" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="360" y1="153" x2="343" y2="174" stroke="#C89010" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- ====== BIBLE REALISTE ====== -->
+
+  <!-- TRANCHE DES PAGES (côté droit, visible) -->
+  <rect x="414" y="186" width="16" height="196" rx="2" fill="url(#pagesGrad)"/>
+  <!-- Lignes de pages -->
+  <g stroke="#C8B880" stroke-width="0.5" opacity="0.6">
+    <line x1="414" y1="192" x2="430" y2="192"/>
+    <line x1="414" y1="198" x2="430" y2="198"/>
+    <line x1="414" y1="204" x2="430" y2="204"/>
+    <line x1="414" y1="210" x2="430" y2="210"/>
+    <line x1="414" y1="216" x2="430" y2="216"/>
+    <line x1="414" y1="222" x2="430" y2="222"/>
+    <line x1="414" y1="228" x2="430" y2="228"/>
+    <line x1="414" y1="234" x2="430" y2="234"/>
+    <line x1="414" y1="240" x2="430" y2="240"/>
+    <line x1="414" y1="246" x2="430" y2="246"/>
+    <line x1="414" y1="252" x2="430" y2="252"/>
+    <line x1="414" y1="258" x2="430" y2="258"/>
+    <line x1="414" y1="264" x2="430" y2="264"/>
+    <line x1="414" y1="270" x2="430" y2="270"/>
+    <line x1="414" y1="276" x2="430" y2="276"/>
+    <line x1="414" y1="282" x2="430" y2="282"/>
+    <line x1="414" y1="288" x2="430" y2="288"/>
+    <line x1="414" y1="294" x2="430" y2="294"/>
+    <line x1="414" y1="300" x2="430" y2="300"/>
+    <line x1="414" y1="306" x2="430" y2="306"/>
+    <line x1="414" y1="312" x2="430" y2="312"/>
+    <line x1="414" y1="318" x2="430" y2="318"/>
+    <line x1="414" y1="324" x2="430" y2="324"/>
+    <line x1="414" y1="330" x2="430" y2="330"/>
+    <line x1="414" y1="336" x2="430" y2="336"/>
+    <line x1="414" y1="342" x2="430" y2="342"/>
+    <line x1="414" y1="348" x2="430" y2="348"/>
+    <line x1="414" y1="354" x2="430" y2="354"/>
+    <line x1="414" y1="360" x2="430" y2="360"/>
+    <line x1="414" y1="366" x2="430" y2="366"/>
+    <line x1="414" y1="372" x2="430" y2="372"/>
+  </g>
+
+  <!-- COUVERTURE PRINCIPALE avec ombre -->
+  <rect x="172" y="176" width="244" height="216" rx="6" fill="url(#coverGrad)" filter="url(#shadow)"/>
+
+  <!-- Texture sombre bas couverture -->
+  <rect x="172" y="176" width="244" height="216" rx="6" fill="url(#texGrad)"/>
+
+  <!-- RELIURE GAUCHE (dos) -->
+  <rect x="172" y="176" width="20" height="216" rx="4" fill="url(#spineLeft)"/>
+  <!-- Décor reliure -->
+  <line x1="176" y1="210" x2="190" y2="210" stroke="#C08020" stroke-width="1.5" opacity="0.6"/>
+  <line x1="176" y1="358" x2="190" y2="358" stroke="#C08020" stroke-width="1.5" opacity="0.6"/>
+  <rect x="176" y="215" width="12" height="140" rx="2" fill="#7A4804" opacity="0.4"/>
+
+  <!-- FACE AVANT (légèrement plus claire) -->
+  <rect x="192" y="180" width="222" height="208" rx="4" fill="#D0901C"/>
+  <rect x="192" y="180" width="222" height="208" rx="4" fill="url(#texGrad)"/>
+
+  <!-- BORDURE DÉCORATIVE DORÉE (cadre) -->
+  <rect x="204" y="192" width="198" height="184" rx="4" fill="none" stroke="#F0C840" stroke-width="2.5"/>
+  <rect x="210" y="198" width="186" height="172" rx="3" fill="none" stroke="#E0A820" stroke-width="1" opacity="0.5"/>
+
+  <!-- CROIX REALISTE avec relief -->
+  <!-- Ombre croix -->
+  <rect x="293" y="222" width="22" height="104" rx="5" fill="#7A4800" opacity="0.4" transform="translate(2,3)"/>
+  <rect x="260" y="254" width="88" height="22" rx="5" fill="#7A4800" opacity="0.4" transform="translate(2,3)"/>
+  <!-- Corps croix -->
+  <rect x="293" y="222" width="22" height="104" rx="5" fill="url(#crossGrad)"/>
+  <rect x="260" y="254" width="88" height="22" rx="5" fill="url(#crossGrad)"/>
+  <!-- Reflet croix -->
+  <rect x="296" y="224" width="8" height="100" rx="3" fill="white" opacity="0.25"/>
+  <rect x="262" y="256" width="84" height="8" rx="3" fill="white" opacity="0.25"/>
+
+  <!-- REFLET BRILLANT surface couverture -->
+  <rect x="192" y="180" width="222" height="208" rx="4" fill="url(#sheen)"/>
+
+  <!-- Reflet diagonal (effet cuir) -->
+  <path d="M 210 185 C 270 185 340 190 390 210 L 390 200 C 340 182 270 178 210 178 Z"
+        fill="white" opacity="0.08"/>
+
+  <!-- SIGNET DORÉ -->
+  <rect x="312" y="384" width="12" height="30" rx="2" fill="#E0B020"/>
+  <polygon points="312,414 324,414 318,426" fill="#E0B020"/>
+  <!-- Reflet signet -->
+  <rect x="313" y="385" width="4" height="26" rx="1" fill="white" opacity="0.3"/>
+
+  <!-- Tranche dorée fine en bas -->
+  <rect x="192" y="384" width="222" height="6" rx="2" fill="#C08010" opacity="0.6"/>
+
+  <!-- TEXTE -->
+  <text x="300" y="458"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="50"
+    font-weight="700"
+    fill="#EDE0C0">Baiboly sy</text>
+
+  <text x="300" y="506"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="28"
+    font-weight="400"
+    fill="#C8A030"
+    letter-spacing="2">Mofonaina Malagasy</text>
+
+</svg>
