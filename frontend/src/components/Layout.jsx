@@ -36,7 +36,10 @@ function Layout() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-900 text-white">
-      <Header setIsSidebarOpen={setIsSidebarOpen} />
+      <Header
+        setIsSidebarOpen={setIsSidebarOpen}
+        isSidebarOpen={isSidebarOpen}
+      />
 
       <div className="flex flex-1 overflow-hidden px-3 py-4 md:px-4 gap-4 flex-col md:flex-row">
         <div
