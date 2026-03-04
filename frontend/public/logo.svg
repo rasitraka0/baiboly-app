@@ -1,0 +1,106 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4921C"/>
+      <stop offset="50%" stop-color="#C07810"/>
+      <stop offset="100%" stop-color="#8B5205"/>
+    </linearGradient>
+    <linearGradient id="spine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5C3502"/>
+      <stop offset="100%" stop-color="#9A5C08"/>
+    </linearGradient>
+    <linearGradient id="pages" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F5EDD0"/>
+      <stop offset="100%" stop-color="#D8C898"/>
+    </linearGradient>
+    <linearGradient id="cross" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5B0"/>
+      <stop offset="100%" stop-color="#D4A820"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0%" y1="30%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="white" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="4" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Pas de fond - transparent -->
+
+  <!-- TRANCHE PAGES droite -->
+  <rect x="340" y="106" width="16" height="230" rx="3" fill="url(#pages)"/>
+  <g stroke="#C8B070" stroke-width="0.6" opacity="0.6">
+    <line x1="340" y1="113" x2="356" y2="113"/>
+    <line x1="340" y1="120" x2="356" y2="120"/>
+    <line x1="340" y1="127" x2="356" y2="127"/>
+    <line x1="340" y1="134" x2="356" y2="134"/>
+    <line x1="340" y1="141" x2="356" y2="141"/>
+    <line x1="340" y1="148" x2="356" y2="148"/>
+    <line x1="340" y1="155" x2="356" y2="155"/>
+    <line x1="340" y1="162" x2="356" y2="162"/>
+    <line x1="340" y1="169" x2="356" y2="169"/>
+    <line x1="340" y1="176" x2="356" y2="176"/>
+    <line x1="340" y1="183" x2="356" y2="183"/>
+    <line x1="340" y1="190" x2="356" y2="190"/>
+    <line x1="340" y1="197" x2="356" y2="197"/>
+    <line x1="340" y1="204" x2="356" y2="204"/>
+    <line x1="340" y1="211" x2="356" y2="211"/>
+    <line x1="340" y1="218" x2="356" y2="218"/>
+    <line x1="340" y1="225" x2="356" y2="225"/>
+    <line x1="340" y1="232" x2="356" y2="232"/>
+    <line x1="340" y1="239" x2="356" y2="239"/>
+    <line x1="340" y1="246" x2="356" y2="246"/>
+    <line x1="340" y1="253" x2="356" y2="253"/>
+    <line x1="340" y1="260" x2="356" y2="260"/>
+    <line x1="340" y1="267" x2="356" y2="267"/>
+    <line x1="340" y1="274" x2="356" y2="274"/>
+    <line x1="340" y1="281" x2="356" y2="281"/>
+    <line x1="340" y1="288" x2="356" y2="288"/>
+    <line x1="340" y1="295" x2="356" y2="295"/>
+    <line x1="340" y1="302" x2="356" y2="302"/>
+    <line x1="340" y1="309" x2="356" y2="309"/>
+    <line x1="340" y1="316" x2="356" y2="316"/>
+    <line x1="340" y1="323" x2="356" y2="323"/>
+  </g>
+
+  <!-- COUVERTURE ombre -->
+  <rect x="118" y="116" width="232" height="236" rx="8" fill="#000" opacity="0.3" transform="translate(6,10)"/>
+
+  <!-- COUVERTURE principale -->
+  <rect x="112" y="106" width="232" height="236" rx="8" fill="url(#cover)" filter="url(#shadow)"/>
+
+  <!-- RELIURE gauche -->
+  <rect x="112" y="106" width="24" height="236" rx="6" fill="url(#spine)"/>
+  <line x1="117" y1="140" x2="133" y2="140" stroke="#C08020" stroke-width="1.5" opacity="0.5"/>
+  <line x1="117" y1="320" x2="133" y2="320" stroke="#C08020" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- FACE AVANT -->
+  <rect x="136" y="110" width="208" height="228" rx="5" fill="#CC881A"/>
+  <rect x="136" y="300" width="208" height="38" rx="5" fill="#000" opacity="0.12"/>
+
+  <!-- BORDURE DORÉE -->
+  <rect x="150" y="124" width="180" height="200" rx="4" fill="none" stroke="#F2C840" stroke-width="2.5"/>
+  <rect x="157" y="131" width="166" height="186" rx="3" fill="none" stroke="#E0A820" stroke-width="1" opacity="0.4"/>
+
+  <!-- CROIX ombre -->
+  <rect x="235" y="158" width="22" height="110" rx="5" fill="#000" opacity="0.3" transform="translate(3,4)"/>
+  <rect x="203" y="189" width="86" height="22" rx="5" fill="#000" opacity="0.3" transform="translate(3,4)"/>
+
+  <!-- CROIX corps -->
+  <rect x="235" y="158" width="22" height="110" rx="5" fill="url(#cross)"/>
+  <rect x="203" y="189" width="86" height="22" rx="5" fill="url(#cross)"/>
+
+  <!-- CROIX reflet -->
+  <rect x="238" y="160" width="7" height="106" rx="3" fill="white" opacity="0.28"/>
+  <rect x="205" y="191" width="82" height="8" rx="3" fill="white" opacity="0.28"/>
+
+  <!-- Reflet surface -->
+  <rect x="136" y="110" width="208" height="228" rx="5" fill="url(#sheen)"/>
+
+  <!-- SIGNET -->
+  <rect x="252" y="338" width="13" height="34" rx="2" fill="#F0C030"/>
+  <polygon points="252,372 265,372 258.5,385" fill="#F0C030"/>
+  <rect x="254" y="340" width="5" height="30" rx="1" fill="white" opacity="0.35"/>
+
+</svg>
