@@ -4,7 +4,8 @@ import axios from 'axios';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-
+// eslint-disable-next-line no-unused-vars
+import { AnimatePresence, motion } from 'framer-motion';
 function Layout() {
   const [livres, setLivre] = useState([]);
   const [testament, setTestament] = useState('taloha');
@@ -42,9 +43,32 @@ function Layout() {
       />
 
       <div className="flex flex-1 overflow-hidden px-3 py-4 md:px-4 gap-4 flex-col md:flex-row">
-        <div
-          className={`${isSidebarOpen ? 'block' : 'hidden'} md:block h-full`}
-        >
+        <AnimatePresence>
+          {isSidebarOpen && (
+            <motion.div
+              className="h-full"
+              style={{ willChange: 'transform' }}
+              initial={{ x: '-100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '-100%', opacity: 0 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+            >
+              <Sidebar
+                testament={testament}
+                setTestament={setTestament}
+                recherche={recherche}
+                setRecherche={setRecherche}
+                livresFiltres={livresFiltres}
+                livreId={livreId}
+                onglet={onglet}
+                setOnglet={setOnglet}
+                onItemClick={handleSideBarItem}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {/* ho an'ilay desktop */}
+        <div className="hidden md:block h-full">
           <Sidebar
             testament={testament}
             setTestament={setTestament}
@@ -57,7 +81,6 @@ function Layout() {
             onItemClick={handleSideBarItem}
           />
         </div>
-
         <div className="flex-1 bg-gray-800 rounded-lg overflow-y-auto custom-scrollbar">
           <Outlet />
         </div>
