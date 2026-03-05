@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -11,7 +11,10 @@ function Layout() {
   const [testament, setTestament] = useState('taloha');
   const [recherche, setRecherche] = useState('');
   const { livreId } = useParams();
-  const [onglet, setOnglet] = useState('baiboly');
+  const location = useLocation();
+  const [onglet, setOnglet] = useState(
+    location.pathname.includes('Mofonaina') ? 'mofon' : 'baiboly',
+  );
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSideBarItem = () => {
