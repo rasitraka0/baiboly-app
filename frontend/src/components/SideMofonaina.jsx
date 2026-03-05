@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { formatDateMalgache, isToday } from '../utils/dateUtils';
+import Spinner from './Spinner';
 
 function MofonainaItem({ item, isActive, onClick }) {
   const isTodayDate = isToday(item.date);
@@ -41,7 +42,7 @@ export default function SideMofonaina({ onItemClick }) {
   }, []);
   console.log(mois);
 
-  if (loading) return <div>Chargement....</div>;
+  if (loading) return <Spinner />;
 
   return (
     <div className="flex flex-col h-full">

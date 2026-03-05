@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import VerseList from '../components/VerseList';
 import { getTodayDate } from '../utils/dateUtils';
+import Spinner from '../components/Spinner';
 
 export default function LectureMofonaina() {
   const [mofonainaActif, setMofonainaActif] = useState([]);
@@ -46,7 +47,7 @@ export default function LectureMofonaina() {
   console.log(dateActif);
 
   if (loading) {
-    return <div>chargement .....</div>;
+    return <Spinner />;
   }
 
   if (!mofonainaActif.length || !versetDateActif.length) {
