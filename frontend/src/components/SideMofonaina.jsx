@@ -9,8 +9,10 @@ function MofonainaItem({ item, isActive, onClick }) {
     <Link
       to={`/lectureMofonaina/${item.date}`}
       onClick={onClick}
-      className={`flex flex-col gap-1 py-3 border-b border-gray-200 hover:bg-gray-700  hover:text-yellow-400 cursor-pointer rounded px-2 
-               ${isTodayDate || isActive ? 'bg-gray-700 text-yellow-400 ' : ''}`}
+      className={`flex flex-col gap-1 py-3 border-b border-gray-200 
+hover:bg-gray-700 hover:text-yellow-400 cursor-pointer rounded px-2
+transition-all duration-300 ease-out
+${isTodayDate || isActive ? 'bg-gray-700 text-yellow-400  border-l-4 border-yellow-400 ml-3' : ''}`}
     >
       <span className="text-sm text-gray-500">
         {formatDateMalgache(item.date)}{' '}

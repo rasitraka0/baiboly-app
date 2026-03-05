@@ -96,7 +96,7 @@ export default function Sidebar({
                 to={`/lecture/${l.id}/1`}
                 key={l.id}
                 onClick={onItemClick}
-                className={`block px-3 py-2 rounded text-gray-200 
+                className={`block px-3 py-2 rounded text-gray-200 transition-all duration-300 ease-out
   ${
     parseInt(livreId) === l.id
       ? 'border-l-4 border-yellow-400 text-yellow-400 bg-gray-700'
