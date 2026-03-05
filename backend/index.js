@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 const errorHandler = require('./src/middlewares/errorHandler');
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.json({ message: 'API Baiboly fonctionne!' });
+});
 app.use('/api', livreRoutes);
 app.use('/api', mofonainaRoutes);
 app.use(errorHandler);
