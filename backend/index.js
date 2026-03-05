@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const livreRoutes = require('./src/routes/livreRoutes');
 const mofonainaRoutes = require('./src/routes/mofonainaRoutes');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const errorHandler = require('./src/middlewares/errorHandler');
 app.use(cors());
 app.use(express.json());
