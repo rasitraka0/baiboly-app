@@ -32,7 +32,7 @@ export default function SideMofonaina({ onItemClick }) {
   useEffect(() => {
     const fetchMois = async () => {
       const response = await axios.get(
-        'http://localhost:3000/api/mofonaina/moisActuel',
+        `${import.meta.env.VITE_API_URL}/api/mofonaina/moisActuel`,
       );
       setMois(response.data);
       setLoading(false);

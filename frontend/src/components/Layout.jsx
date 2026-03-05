@@ -20,7 +20,9 @@ function Layout() {
 
   useEffect(() => {
     const fetchLivres = async () => {
-      const response = await axios.get('http://localhost:3000/api/livres');
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/livres`,
+      );
       setLivre(response.data);
     };
     fetchLivres();

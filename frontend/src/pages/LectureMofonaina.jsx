@@ -15,7 +15,7 @@ export default function LectureMofonaina() {
     const fetchAll = async () => {
       try {
         const responseDate = await axios.get(
-          `http://localhost:3000/api/mofonaina/${date}`,
+          `${import.meta.env.VITE_API_URL}/api/mofonaina/${date}`,
         );
 
         const data = responseDate.data;
@@ -30,7 +30,7 @@ export default function LectureMofonaina() {
         setMofonainaActif(data);
 
         const responseVerset = await axios.get(
-          `http://localhost:3000/api/mofonaina/${data[0].livre_id}/${data[0].chapitre}/${data[0].verset_debut}/${data[0].verset_fin}`,
+          `${import.meta.env.VITE_API_URL}/api/mofonaina/${data[0].livre_id}/${data[0].chapitre}/${data[0].verset_debut}/${data[0].verset_fin}`,
         );
 
         setVersetDateActif(responseVerset.data || []);

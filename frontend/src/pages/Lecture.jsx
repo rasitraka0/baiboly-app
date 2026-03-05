@@ -38,7 +38,7 @@ export default function Lecture() {
   useEffect(() => {
     const fetchVersets = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/livres/${livreId}/chapitres/${chapitre}`,
+        `${import.meta.env.VITE_API_URL}/api/livres/${livreId}/chapitres/${chapitre}`,
       );
       setVerset(response.data);
       console.log(response.data);
@@ -56,7 +56,7 @@ export default function Lecture() {
   useEffect(() => {
     const fetchChapitres = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/livres/${livreId}/chapitres`,
+        `${import.meta.env.VITE_API_URL}/api/livres/${livreId}/chapitres`,
       );
       setChapitres(response.data);
     };
@@ -66,7 +66,7 @@ export default function Lecture() {
   useEffect(() => {
     const fetchLivre = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/livres/${livreId}`,
+        `${import.meta.env.VITE_API_URL}/api/livres/${livreId}`,
       );
       setLivre(response.data);
     };
