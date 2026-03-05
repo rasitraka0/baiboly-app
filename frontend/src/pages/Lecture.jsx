@@ -41,7 +41,6 @@ export default function Lecture() {
         `${import.meta.env.VITE_API_URL}/api/livres/${livreId}/chapitres/${chapitre}`,
       );
       setVerset(response.data);
-      console.log(response.data);
 
       setVersetDebut(1);
       setVersetFin(

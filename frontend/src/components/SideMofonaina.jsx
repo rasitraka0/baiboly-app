@@ -40,7 +40,6 @@ export default function SideMofonaina({ onItemClick }) {
     };
     fetchMois();
   }, []);
-  console.log(mois);
 
   if (loading) return <Spinner />;
 

@@ -44,7 +44,7 @@ export default function LectureMofonaina() {
 
     fetchAll();
   }, [date]);
-  console.log(dateActif);
+  
 
   if (loading) {
     return <Spinner />;
