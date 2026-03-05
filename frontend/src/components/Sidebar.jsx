@@ -44,21 +44,28 @@ export default function Sidebar({
   onItemClick,
 }) {
   const navigate = useNavigate();
-  function navigerVers() {
+  function navigerVersMofonaina() {
     navigate('/LectureMofonaina');
     setOnglet('mofon');
+  }
+  function navigerVersBible() {
+    navigate('/Lecture/1/1');
+    setOnglet('baiboly');
   }
   return (
     <div className="bg-gray-800 rounded-lg flex flex-col overflow-hidden w-full md:w-80 lg:w-96 h-full">
       <div className="flex border-b border-gray-700">
         <SidebarTabButton
           isActive={onglet === 'baiboly'}
-          onClick={() => setOnglet('baiboly')}
+          onClick={navigerVersBible}
         >
           Baiboly
         </SidebarTabButton>
 
-        <SidebarTabButton isActive={onglet === 'mofon'} onClick={navigerVers}>
+        <SidebarTabButton
+          isActive={onglet === 'mofon'}
+          onClick={navigerVersMofonaina}
+        >
           Mofon'aina
         </SidebarTabButton>
       </div>
