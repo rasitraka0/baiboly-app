@@ -1,6 +1,6 @@
 # Baiboly sy Mofon'aina Malagasy
 
-> Ny Soratra Masina amin'ny teny Malagasy — La Bible et le Mofon'aina en langue malgache.
+> The Holy Scriptures in the Malagasy language — The Bible and the Mofon'aina in Malagasy.
 
 🌐 https://baiboby-sy-mofonaina.netlify.app
 
@@ -8,80 +8,80 @@
 
 ## Description
 
-**Baiboly App** est une application web permettant de lire la Bible en malgache et de consulter le Mofon'aina (lecture spirituelle quotidienne) du mois en cours.
+**Baiboly App** is a web application for reading the Bible in Malagasy and consulting the Mofon'aina (daily spiritual reading) for the current month.
 
-### Fonctionnalités
+### Features
 
-- Lecture de la Bible complète en malgache (Ancien et Nouveau Testament)
-- Recherche de livres par nom
-- Consultation du Mofon'aina par date
-- Filtrage des versets par chapitre, verset de début et de fin
-- Interface responsive (mobile et desktop)
+- Full Bible reading in Malagasy (Old and New Testament)
+- Search for books by name
+- Browse the Mofon'aina by date
+- Filter verses by chapter, start and end verse
+- Responsive interface (mobile and desktop)
 
 ---
 
-## Stack technique
+## Tech Stack
 
 ### Frontend
 
-| Technologie       | Utilisation  |
+| Technology        | Usage        |
 | ----------------- | ------------ |
-| **React**         | Framework UI |
+| **React**         | UI Framework |
 | **Vite**          | Build tool   |
-| **Tailwind CSS**  | Styles       |
-| **Axios**         | Appels API   |
+| **Tailwind CSS**  | Styling      |
+| **Axios**         | API calls    |
 | **React Router**  | Navigation   |
 | **Framer Motion** | Animations   |
 
 ### Backend
 
-| Technologie    | Utilisation          |
+| Technology     | Usage                |
 | -------------- | -------------------- |
 | **Node.js**    | Runtime              |
-| **Express.js** | Framework API REST   |
-| **PostgreSQL** | Base de données      |
-| **pg**         | Connexion PostgreSQL |
+| **Express.js** | REST API Framework   |
+| **PostgreSQL** | Database             |
+| **pg**         | PostgreSQL connector |
 
-### Hébergement
+### Hosting
 
-| Service       | Utilisation                |
-| ------------- | -------------------------- |
-| **Netlify**   | Frontend                   |
-| **Render**    | Backend                    |
-| **Neon.tech** | Base de données PostgreSQL |
+| Service       | Usage               |
+| ------------- | ------------------- |
+| **Netlify**   | Frontend            |
+| **Render**    | Backend             |
+| **Neon.tech** | PostgreSQL database |
 
 ---
 
-## Lancer le projet en local
+## Run the Project Locally
 
-### Prérequis
+### Prerequisites
 
 - Node.js v18+
-- PostgreSQL (ou Docker)
+- PostgreSQL (or Docker)
 - Git
 
-### 1 Cloner le projet
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/rasitraka0/baiboly-app.git
 cd baiboly-app
 ```
 
-### 2 Lancer le Backend
+### 2. Start the Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Créez un fichier `.env` dans le dossier `backend` :
+Create a `.env` file inside the `backend` folder:
 
 ```env
 PORT=3000
 DB_HOST=localhost
-DB_USER=votre_utilisateur
+DB_USER=your_username
 DB_PORT=5432
-DB_PASSWORD=votre_mot_de_passe
+DB_PASSWORD=your_password
 DB_NAME=baiboly
 ```
 
@@ -89,14 +89,14 @@ DB_NAME=baiboly
 npm start
 ```
 
-### 3 Lancer le Frontend
+### 3. Start the Frontend
 
 ```bash
 cd frontend
 npm install
 ```
 
-Créez un fichier `.env` dans le dossier `frontend` :
+Create a `.env` file inside the `frontend` folder:
 
 ```env
 VITE_API_URL=http://localhost:3000
@@ -106,7 +106,7 @@ VITE_API_URL=http://localhost:3000
 npm run dev
 ```
 
-### 4 Ouvrir dans le navigateur
+### 4. Open in your browser
 
 ```
 http://localhost:5173
@@ -114,7 +114,22 @@ http://localhost:5173
 
 ---
 
-## Structure du projet
+## 🚧 Work in Progress
+
+This project is still under active development. New features and improvements are regularly being added.
+
+### Upcoming improvements
+
+- [ ] Multiple Bible languages (English, French, etc.)
+- [ ] Dark / Light mode toggle
+- [ ] Offline mode (PWA)
+- [ ] User bookmarks & favorites
+
+Contributions and suggestions are welcome! Feel free to open an **issue** or submit a **pull request**.
+
+---
+
+## Project Structure
 
 ```
 baiboly-app/
@@ -133,5 +148,3 @@ baiboly-app/
         ├── pages/
         └── utils/
 ```
-
----
