@@ -11,6 +11,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.json({ message: 'API Baiboly fonctionne!' });
 });
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 app.use('/api', livreRoutes);
 app.use('/api', mofonainaRoutes);
 app.use(errorHandler);
