@@ -1,8 +1,10 @@
 import React from 'react';
 import image from '../assets/baiboly_mofo.svg';
+import { useNavigate } from 'react-router-dom';
 export default function Accueil() {
+  const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center px-6 gap-6">
+    <div className="flex flex-col items-center  text-center px-6 gap-4 py-8">
       <img src={image} alt="Baiboly" className="w-80 h-80" />
 
       <div>
@@ -17,7 +19,21 @@ export default function Accueil() {
         Mofon'aina andavanandro.
       </p>
 
-     
+      <div className="flex gap-6 md:hidden">
+        <span
+          onClick={() => navigate('/Lecture/1/1')}
+          className="text-yellow-400 text-sm font-semibold border-b border-yellow-400 cursor-pointer hover:text-yellow-300 hover:border-gray-700 transition-all duration-300"
+        >
+          Baiboly →
+        </span>
+
+        <span
+          onClick={() => navigate('/LectureMofonaina')}
+          className="text-yellow-400 text-sm font-semibold border-b border-yellow-400 cursor-pointer hover:text-yellow-300 hover:border-gray-700 transition-all duration-300"
+        >
+          Mofon'aina →
+        </span>
+      </div>
     </div>
   );
 }
