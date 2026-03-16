@@ -44,7 +44,6 @@ export default function LectureMofonaina() {
 
     fetchAll();
   }, [date]);
-  
 
   if (loading) {
     return <Spinner />;
@@ -52,7 +51,7 @@ export default function LectureMofonaina() {
 
   if (!mofonainaActif.length || !versetDateActif.length) {
     return (
-      <div className="h-full flex items-center justify-center text-white">
+      <div className="h-full flex items-center justify-center text-gray-900 dark:text-white">
         Tsy misy mofonaina ho an'ity daty ity.
       </div>
     );
@@ -60,7 +59,7 @@ export default function LectureMofonaina() {
 
   return (
     <div className="h-full flex flex-col text-white">
-      <div className="px-6 py-1 border-b border-gray-700">
+      <div className="px-6 py-1 border-b border-gray-200 dark:border-gray-700">
         <div className="text-yellow-400 text-1xl font-bold mb-4 text-center md:text-2xl xl:text-3xl">
           MOFON'AINA : {mofonainaActif[0].jour} {mofonainaActif[0].mois}
         </div>

@@ -3,7 +3,7 @@ import { Github } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 border-t border-gray-700 px-6 py-3 flex flex-wrap items-center justify-center text-gray-400 text-sm gap-1">
+    <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 px-6 py-3 flex flex-wrap items-center justify-center text-gray-500 dark:text-gray-400 text-sm gap-1">
       © 2026 Baiboly Malagasy by{' '}
       <a
         href="https://github.com/rasitraka0"

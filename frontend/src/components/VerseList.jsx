@@ -6,7 +6,9 @@ export default function VerseList({ verses }) {
       {verses.map((v) => (
         <div key={v.id} className="flex gap-4">
           <span className="text-yellow-400 font-bold min-w-6">{v.verset}</span>
-          <span className="text-gray-200 leading-relaxed">{v.texte}</span>
+          <span className="text-gray-700 dark:text-gray-200 leading-relaxed">
+            {v.texte}
+          </span>
         </div>
       ))}
     </div>

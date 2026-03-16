@@ -8,13 +8,15 @@ export default function Accueil() {
       <img src={image} alt="Baiboly" className="w-80 h-80" />
 
       <div>
-        <h1 className="text-3xl font-bold text-white">Tongasoa !</h1>
-        <p className="text-gray-400 mt-2 text-lg">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          Tongasoa !
+        </h1>
+        <p className="text-gray-500 dark:text-gray-400 mt-2 text-lg">
           Mazotoa mamaky ny Soratra Masina
         </p>
       </div>
 
-      <p className="text-gray-500 text-sm max-w-md">
+      <p className="text-gray-400 dark:text-gray-500 text-sm max-w-md">
         Ny Baiboly iray manontolo amin'ny teny Malagasy, miaraka amin'ny
         Mofon'aina andavanandro.
       </p>

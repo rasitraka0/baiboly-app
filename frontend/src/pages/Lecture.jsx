@@ -6,11 +6,13 @@ import VerseList from '../components/VerseList';
 function FilterSelect({ label, value, onChange, children }) {
   return (
     <div className="flex justify-end mb-1">
-      <label className="text-gray-400 ml-2 xl:px-4">{label}</label>
+      <label className="text-gray-500 dark:text-gray-400 ml-2 xl:px-4">
+        {label}
+      </label>
       <select
         value={value}
         onChange={onChange}
-        className="bg-gray-700 text-white px-2 rounded outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer xl:gap-2.5"
+        className="bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2 rounded outline-none focus:ring-1 focus:ring-yellow-400 cursor-pointer xl:gap-2.5"
       >
         {children}
       </select>
@@ -73,8 +75,8 @@ export default function Lecture() {
   }, [livreId]);
 
   return (
-    <div className="h-full flex flex-col text-white">
-      <div className="flex justify-between xl:block px-6 py-4 border-b border-gray-700">
+    <div className="h-full flex flex-col text-gray-900 dark:text-white">
+      <div className="flex justify-between xl:block px-6 py-4 border-b border-gray-200 dark:border-gray-700">
         {livre && (
           <h2 className="text-yellow-400 text-1xl font-bold mb-4 md:text-2xl xl:text-2xl">
             {livre[0].nom}

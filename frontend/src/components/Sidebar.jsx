@@ -11,7 +11,7 @@ function SidebarTabButton({ isActive, onClick, children }) {
       className={`flex-1 py-3 font-bold cursor-pointer ${
         isActive
           ? 'text-yellow-400 border-b-2 border-yellow-400'
-          : 'text-gray-400 hover:text-white'
+          : 'text-gray-400 hover:text-gray-900 dark:hover:text-white'
       }`}
     >
       {children}
@@ -25,7 +25,7 @@ function TestamentButton({ isActive, onClick, children }) {
       className={`flex-1 cursor-pointer py-2 rounded font-bold text-sm ${
         isActive
           ? 'bg-yellow-400 text-gray-900'
-          : 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+          : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
       }`}
     >
       {children}
@@ -53,8 +53,8 @@ export default function Sidebar({
     setOnglet('baiboly');
   }
   return (
-    <div className="bg-gray-800 rounded-lg flex flex-col overflow-hidden w-full md:w-80 lg:w-96 h-full">
-      <div className="flex border-b border-gray-700">
+    <div className="bg-white dark:bg-gray-800 rounded-lg flex flex-col overflow-hidden w-full md:w-80 lg:w-96 h-full">
+      <div className="flex border-b border-gray-200 dark:border-gray-700">
         <SidebarTabButton
           isActive={onglet === 'baiboly'}
           onClick={navigerVersBible}
@@ -93,7 +93,7 @@ export default function Sidebar({
               placeholder="Tadiavo ny boky..."
               value={recherche}
               onChange={(e) => setRecherche(e.target.value)}
-              className="w-full bg-gray-700 text-gray-200 placeholder-gray-500 rounded px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-yellow-400"
+              className="w-full bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 rounded px-3 py-2 text-sm outline-none focus:ring-1 focus:ring-yellow-400"
             />
           </div>
 
@@ -103,11 +103,11 @@ export default function Sidebar({
                 to={`/lecture/${l.id}/1`}
                 key={l.id}
                 onClick={onItemClick}
-                className={`block px-3 py-2 rounded text-gray-200 transition-all duration-300 ease-out
+                className={`block px-3 py-2 rounded text-gray-700 dark:text-gray-200 transition-all duration-300 ease-out
   ${
     parseInt(livreId) === l.id
-      ? 'border-l-4 border-yellow-400 text-yellow-400 bg-gray-700'
-      : 'hover:bg-gray-700 hover:text-yellow-400'
+      ? 'border-l-4 border-yellow-400 text-yellow-400 bg-gray-100 dark:bg-gray-700'
+      : 'hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-yellow-400'
   }`}
               >
                 {l.nom}

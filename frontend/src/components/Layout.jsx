@@ -41,7 +41,7 @@ function Layout() {
   );
 
   return (
-    <div className="flex flex-col h-screen bg-gray-900 text-white">
+    <div className="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
       <Header
         setIsSidebarOpen={setIsSidebarOpen}
         isSidebarOpen={isSidebarOpen}
@@ -86,7 +86,7 @@ function Layout() {
             onItemClick={handleSideBarItem}
           />
         </div>
-        <div className="flex-1 bg-gray-800 rounded-lg overflow-y-auto custom-scrollbar">
+        <div className="flex-1 bg-white dark:bg-gray-800 rounded-lg overflow-y-auto custom-scrollbar">
           <Outlet />
         </div>
       </div>

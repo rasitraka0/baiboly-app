@@ -10,12 +10,16 @@ function MofonainaItem({ item, isActive, onClick }) {
     <Link
       to={`/lectureMofonaina/${item.date}`}
       onClick={onClick}
-      className={`flex flex-col gap-1 py-3 border-b border-gray-200 
-hover:bg-gray-700 hover:text-yellow-400 cursor-pointer rounded px-2
+      className={`flex flex-col gap-1 py-3 border-b border-gray-200 dark:border-gray-700
+hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-yellow-400 cursor-pointer rounded px-2
 transition-all duration-300 ease-out
-${isActive ? 'bg-gray-700 text-yellow-400  border-l-4 border-yellow-400 ml-3' : ''}`}
+${
+  isActive
+    ? 'bg-gray-100 dark:bg-gray-700 text-yellow-400 border-l-4 border-yellow-400 ml-3'
+    : 'text-gray-800 dark:text-gray-200'
+}`}
     >
-      <span className="text-sm text-gray-500">
+      <span className="text-sm text-gray-500 dark:text-gray-400">
         {formatDateMalgache(item.date)}{' '}
         {isTodayDate ? <span className="text-green-400"> Anio</span> : ''}
       </span>
@@ -45,7 +49,9 @@ export default function SideMofonaina({ onItemClick }) {
 
   return (
     <div className="flex flex-col h-full">
-      <h2 className="pb-2 uppercase text-center m-2 ">{mois[0].theme}</h2>
+      <h2 className="pb-2 uppercase text-center m-2 text-gray-900 dark:text-white">
+        {mois[0].theme}
+      </h2>
       <div className="overflow-y-auto flex-1 px-2 pb-2 custom-scrollbar">
         {mois.map((m) => {
           return (
