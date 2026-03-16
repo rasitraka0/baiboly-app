@@ -8,9 +8,19 @@ export default function Header({ setIsSidebarOpen, isSidebarOpen }) {
     <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-4 py-3 flex items-center gap-3">
       <button
         onClick={() => setIsSidebarOpen((prev) => !prev)}
-        className="md:hidden bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-2 rounded border border-gray-200 dark:border-gray-600 shrink-0"
+        className="md:hidden bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 p-2 rounded border border-gray-200 dark:border-gray-600 shrink-0"
       >
-        {isSidebarOpen ? <CircleChevronLeft /> : <CircleChevronRight />}
+        <div className="w-5 h-5 flex flex-col justify-center gap-1.5 relative">
+          <span
+            className={`block h-0.5 w-5 bg-current transform transition-all duration-300 ${isSidebarOpen ? 'rotate-45 translate-y-2' : ''}`}
+          ></span>
+          <span
+            className={`block h-0.5 w-5 bg-current transition-all duration-300 ${isSidebarOpen ? 'opacity-0' : ''}`}
+          ></span>
+          <span
+            className={`block h-0.5 w-5 bg-current transform transition-all duration-300 ${isSidebarOpen ? '-rotate-45 -translate-y-2' : ''}`}
+          ></span>
+        </div>
       </button>
 
       <div className="flex items-center gap-3 min-w-0">
