@@ -2,7 +2,7 @@
 
 > The Holy Scriptures in the Malagasy language — The Bible and the Mofon'aina in Malagasy.
 
-🌐 https://baiboby-sy-mofonaina.netlify.app
+🌐 https://baiboly-sy-mofonaina.netlify.app
 
 ---
 
